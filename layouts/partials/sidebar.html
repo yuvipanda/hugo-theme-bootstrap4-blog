@@ -1,8 +1,8 @@
 <aside class="col-sm-3 ml-auto blog-sidebar">
-  {{ if and (.Site.Params.sidebar) (isset .Site.Params.sidebar "about") }}
+  {{ range $sideBarItem := .Site.Params.sidebar.items }}
   <section class="sidebar-module sidebar-module-inset">
-    <h4>{{ i18n "about" }}</h4>
-    <p>{{ .Site.Params.sidebar.about | markdownify }}</p>
+    <h4>{{ $sideBarItem.title }}</h4>
+    <p>{{ $sideBarItem.content | markdownify }}</p>
   </section>
   {{ end }}
 
